@@ -5,8 +5,8 @@
 -------------
 
 ```
-echo 'HOSTNAME=mouse' >> /etc/sysconfig/network
-hostname 'mouse'
+echo 'HOSTNAME=chenhua-1' >> /etc/sysconfig/network
+hostname 'chenhua-1'
 ```
 
 3. 编辑 /etc/hosts
@@ -14,7 +14,7 @@ hostname 'mouse'
 
 ```
 127.0.0.1       localhost.localdomain   localhost
-12.34.56.78     mouse.example.com       mouse
+106.186.119.111 host-1.chenhua.me       chenhua-1
 ```
 
 4. 设置时区
