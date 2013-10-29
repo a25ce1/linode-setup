@@ -29,10 +29,12 @@ ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 ```
 rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+
+rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
 wget https://raw.github.com/a25ce1/server-setup/master/etc/remi.repo -O /etc/yum.repos.d/remi.repo
+
 yum update -y
 ```
 
