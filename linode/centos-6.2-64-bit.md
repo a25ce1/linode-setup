@@ -72,3 +72,4 @@
     
     COMMIT
 
+    iptables-restore < /etc/iptables.firewall.rules
