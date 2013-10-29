@@ -108,7 +108,9 @@
 
 参考：https://github.com/h5bp/server-configs-apache/tree/master/doc
 
-禁止显示目录索引
+`Options -Indexes`
+
+`AllowOverride All`
 
     rm -f /etc/httpd/conf.d/welcome.conf
     wget https://raw.github.com/a25ce1/server-setup/master/etc/_default.conf -O /etc/httpd/conf.d/_default.conf
