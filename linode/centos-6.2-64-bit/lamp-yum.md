@@ -8,7 +8,7 @@
     * MySQL `/etc/my.cnf`
     * PHP `/etc/php.ini`
 
-## 设置反向域名解析，添加局域网 IP，然后重启服务器
+## 设置反向域名解析，添加局域网 IP，再重启服务器
 
 1. 在 DNSPod 中添加一条 A 记录指向服务器 IP，例如：`host-1.project-name.com => 12.34.56.78`
 2. 在 Linode 后台中，修改服务器 IP 的反向解析为刚才设置的域名
