@@ -1,115 +1,88 @@
-1 设置反向域名解析，添加局域网 IP，然后重启服务器
---------------------------------------------------
+## 设置反向域名解析，添加局域网 IP，然后重启服务器
 
-1.1 在 DNSPod 中添加一条 A 记录指向服务器 IP 地址，例如：`host-1.project-name.com => 12.34.56.78`
-1.2 在 Linode 后台中，修改服务器 IP 的反向解析为刚才设置的域名
-1.3 在 Linode 后台中，点击分配一个局域网 IP 地址
+1. 在 DNSPod 中添加一条 A 记录指向服务器 IP，例如：`host-1.project-name.com => 12.34.56.78`
+2. 在 Linode 后台中，修改服务器 IP 的反向解析为刚才设置的域名
+3. 在 Linode 后台中，点击分配一个局域网 IP
+4. 重启服务器
 
-2. 设置主机名
--------------
+## 设置主机名
 
-```
-echo 'HOSTNAME=project-name-1' >> /etc/sysconfig/network
-hostname 'project-name-1'
-```
+    echo 'HOSTNAME=project-name-1' >> /etc/sysconfig/network
+    hostname 'project-name-1'
 
-3. 编辑 /etc/hosts
-------------------
+## 编辑 /etc/hosts
 
-```
-127.0.0.1       localhost.localdomain   localhost
-12.34.56.78     host-1.project-name.com project-name-1
-```
+    127.0.0.1       localhost.localdomain   localhost
+    12.34.56.78     host-1.project-name.com project-name-1
 
-4. 设置时区
------------
+## 设置时区
 
-```
-ln -sf /usr/share/zoneinfo/UTC /etc/localtime
-```
+    ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
-5. 安装 EPEL 和 Remi，并安装软件更新
-------------------------------------
+## 安装 EPEL 和 Remi，并安装软件更新
 
-```
-rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+    rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+    
+    rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/remi.repo -O /etc/yum.repos.d/remi.repo
+    
+    yum update
 
-rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
-wget https://raw.github.com/a25ce1/server-setup/master/etc/remi.repo -O /etc/yum.repos.d/remi.repo
+## 创建防火墙
 
-yum update
-```
-
-6. 创建防火墙
--------------
-
-```
-nano /etc/iptables.firewall.rules
-```
+    nano /etc/iptables.firewall.rules
 
 复制、粘贴如下内容：
 
-```
-*filter
+    *filter
+    
+    #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
+    -A INPUT -i lo -j ACCEPT
+    -A INPUT -d 127.0.0.0/8 -j REJECT
+    
+    #  Accept all established inbound connections
+    -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    
+    #  Allow all outbound traffic - you can modify this to only allow certain traffic
+    -A OUTPUT -j ACCEPT
+    
+    #  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL).
+    -A INPUT -p tcp --dport 80 -j ACCEPT
+    -A INPUT -p tcp --dport 443 -j ACCEPT
+    
+    #  Allow SSH connections
+    #
+    #  The -dport number should be the same port number you set in sshd_config
+    #
+    -A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+    
+    #  Allow ping
+    -A INPUT -p icmp -j ACCEPT
+    
+    #  Log iptables denied calls
+    -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
+    
+    #  Drop all other inbound - default deny unless explicitly allowed policy
+    -A INPUT -j DROP
+    -A FORWARD -j DROP
+    
+    COMMIT
 
-#  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
--A INPUT -i lo -j ACCEPT
--A INPUT -d 127.0.0.0/8 -j REJECT
+### 应用防火墙规则
 
-#  Accept all established inbound connections
--A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    iptables-restore < /etc/iptables.firewall.rules
 
-#  Allow all outbound traffic - you can modify this to only allow certain traffic
--A OUTPUT -j ACCEPT
+### 保存当前防火墙规则
 
-#  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL).
--A INPUT -p tcp --dport 80 -j ACCEPT
--A INPUT -p tcp --dport 443 -j ACCEPT
+    /sbin/service iptables save
 
-#  Allow SSH connections
-#
-#  The -dport number should be the same port number you set in sshd_config
-#
--A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+## 安装和配置 Fail2Ban
 
-#  Allow ping
--A INPUT -p icmp -j ACCEPT
-
-#  Log iptables denied calls
--A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
-
-#  Drop all other inbound - default deny unless explicitly allowed policy
--A INPUT -j DROP
--A FORWARD -j DROP
-
-COMMIT
-```
-
-应用防火墙规则
-
-```
-iptables-restore < /etc/iptables.firewall.rules
-```
-
-保存当前防火墙规则
-
-```
-/sbin/service iptables save
-```
-
-7. 安装和配置 Fail2Ban
-----------------------
-
-```
-yum install fail2ban
-
-wget https://raw.github.com/a25ce1/server-setup/master/etc/jail.local -O /etc/fail2ban/jail.local
-
-chkconfig fail2ban on
-```
-
-8.  
-------
+    yum install fail2ban
+    
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/jail.local -O /etc/fail2ban/jail.local
+    
+    chkconfig fail2ban on
 
