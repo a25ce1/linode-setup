@@ -5,7 +5,7 @@
 -------------
 
 ```
-echo 'HOSTNAME=chenhua-1' >> /etc/sysconfig/network
+echo 'HOSTNAME=example-1' >> /etc/sysconfig/network
 hostname 'example-1'
 ```
 
