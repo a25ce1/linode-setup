@@ -35,7 +35,7 @@ rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
 wget https://raw.github.com/a25ce1/server-setup/master/etc/remi.repo -O /etc/yum.repos.d/remi.repo
 
-yum update -y
+yum update
 ```
 
 6. 创建新用户
@@ -99,3 +99,10 @@ iptables-restore < /etc/iptables.firewall.rules
 8. 安装和配置 Fail2Ban
 ----------------------
 
+```
+yum install fail2ban
+```
+
+```
+wget https://raw.github.com/a25ce1/server-setup/master/etc/jail.local -O /etc/fail2ban/jail.local
+```
