@@ -1,12 +1,12 @@
-1. 设置反向域名解析、局域网 IP，然后重启服务器
-----------------------------------------------
+1. 设置反向域名解析，添加局域网 IP，然后重启服务器
+--------------------------------------------------
 
 2. 设置主机名
 -------------
 
 ```
-echo 'HOSTNAME=example-1' >> /etc/sysconfig/network
-hostname 'example-1'
+echo 'HOSTNAME=project-name-1' >> /etc/sysconfig/network
+hostname 'project-name-1'
 ```
 
 3. 编辑 /etc/hosts
@@ -14,7 +14,7 @@ hostname 'example-1'
 
 ```
 127.0.0.1       localhost.localdomain   localhost
-12.34.56.78     host-1.example.com      example-1
+12.34.56.78     host-1.project-name.com project-name-1
 ```
 
 4. 设置时区
@@ -38,15 +38,14 @@ wget https://raw.github.com/a25ce1/server-setup/master/etc/remi.repo -O /etc/yum
 yum update
 ```
 
-6. 创建新用户
+6. 创建防火墙
 -------------
 
+```
+nano /etc/iptables.firewall.rules
+```
 
-
-7. 创建防火墙
--------------
-
-创建并编辑文件 `/etc/iptables.firewall.rules`
+复制、粘贴如下内容：
 
 ```
 *filter
@@ -96,7 +95,7 @@ iptables-restore < /etc/iptables.firewall.rules
 /sbin/service iptables save
 ```
 
-8. 安装和配置 Fail2Ban
+7. 安装和配置 Fail2Ban
 ----------------------
 
 ```
@@ -107,6 +106,6 @@ wget https://raw.github.com/a25ce1/server-setup/master/etc/jail.local -O /etc/fa
 chkconfig fail2ban on
 ```
 
-9. 
+8.  
 ------
 
