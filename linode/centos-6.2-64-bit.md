@@ -36,7 +36,7 @@
 7. 创建防火墙
 -------------
 
-nano /etc/iptables.firewall.rules
+创建文件 `/etc/iptables.firewall.rules`，并编辑如下内容：
 
     *filter
     
