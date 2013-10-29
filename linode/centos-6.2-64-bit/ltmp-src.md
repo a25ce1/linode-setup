@@ -2,7 +2,7 @@
 
 成功安装后的网站根目录和一些配置文件的路径
 
-* Apache 网站根目录 `/data/nginx/html`
+* Apache 网站根目录 `/data/nginx/www/public`
 * 配置文件
     * Tengine `/data/nginx/conf`
     * MariaDB `/data/mysql`
