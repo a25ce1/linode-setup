@@ -10,8 +10,8 @@
 3. 编辑 /etc/hosts
 ------------------
 
-> 127.0.0.1       localhost.localdomain   localhost
-> 12.34.56.78     plato.example.com       plato
+    127.0.0.1       localhost.localdomain   localhost
+    12.34.56.78     plato.example.com       plato
 
 4. 设置时区
 -----------
