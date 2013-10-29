@@ -14,7 +14,7 @@ hostname 'mouse'
 
 ```
 127.0.0.1       localhost.localdomain   localhost
-12.34.56.78     plato.example.com       plato
+12.34.56.78     mouse.example.com       mouse
 ```
 
 4. 设置时区
