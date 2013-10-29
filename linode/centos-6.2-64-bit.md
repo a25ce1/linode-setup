@@ -1,10 +1,10 @@
 ## 成功安装后网站根目录和一些配置文件的路径
 
-Apache 网站根目录 `/var/www/html`
-
-Apache 配置文件 `/etc/httpd/conf/httpd.conf` 和 `/etc/httpd/conf.d/*.conf`
-MySQL 配置文件 `/etc/my.cnf`
-PHP 配置文件 `/etc/php.ini`
+* Apache 网站根目录 `/var/www/html`
+* 配置文件
+    * Apache `/etc/httpd/conf/httpd.conf` 和 `/etc/httpd/conf.d/*.conf`
+    * MySQL `/etc/my.cnf`
+    * PHP `/etc/php.ini`
 
 ## 设置反向域名解析，添加局域网 IP，然后重启服务器
 
