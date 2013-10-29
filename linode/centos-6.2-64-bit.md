@@ -32,7 +32,7 @@ rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.r
 rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
-wget https://raw.github.com/a25ce1/aliyun-setup/master/etc/remi.repo -O /etc/yum.repos.d/remi.repo
+wget https://raw.github.com/a25ce1/server-setup/master/etc/remi.repo -O /etc/yum.repos.d/remi.repo
 yum update -y
 ```
 
