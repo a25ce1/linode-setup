@@ -1,4 +1,4 @@
-# Linode 64 位 CentOS 6.2 的 LAMP 快速安装教程
+# Linode 64 位 CentOS 6 的 LAMP 快速安装教程
 
 最终网站根目录和一些配置文件的路径
 
