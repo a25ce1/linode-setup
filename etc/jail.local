@@ -1,5 +1,6 @@
 [ssh-iptables]
+
 enabled  = true
-bantime = 60
+bantime = 3600
 maxretry = 3
 logpath  = /var/log/fail2ban.log
