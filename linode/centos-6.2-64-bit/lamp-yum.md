@@ -90,7 +90,7 @@
 
 ## 安装和配置 Fail2Ban
 
-    yum install fail2ban
+    yum install -y fail2ban
     
     wget https://raw.github.com/a25ce1/server-setup/master/etc/jail.local -O /etc/fail2ban/jail.local
     
