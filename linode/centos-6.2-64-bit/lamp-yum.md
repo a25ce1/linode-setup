@@ -36,7 +36,7 @@
     rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
     wget https://raw.github.com/a25ce1/server-setup/master/etc/remi.repo -O /etc/yum.repos.d/remi.repo
     
-    yum update
+    yum update -y
 
 ## 创建防火墙
 
