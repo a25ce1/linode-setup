@@ -1,4 +1,4 @@
-linode-setup
+server-setup
 ============
 
-Linode server setup scripts.
+Server setup scripts.
