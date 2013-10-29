@@ -116,6 +116,11 @@
 参考
 
 * https://github.com/h5bp/server-configs-apache/tree/master/doc
+* 禁止显示目录索引
+
+#### 删除 /etc/httpd/conf.d/welcome.conf
+
+    rm -f /etc/httpd/conf.d/welcome.conf
 
 ## 安装 MySQL 数据库
 
