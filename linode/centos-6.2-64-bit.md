@@ -1,3 +1,11 @@
+## 成功安装后网站根目录和一些配置文件的路径
+
+Apache 网站根目录 `/var/www/html`
+
+Apache 配置文件 `/etc/httpd/conf/httpd.conf` 和 `/etc/httpd/conf.d/*.conf`
+MySQL 配置文件 `/etc/my.cnf`
+PHP 配置文件 `/etc/php.ini`
+
 ## 设置反向域名解析，添加局域网 IP，然后重启服务器
 
 1. 在 DNSPod 中添加一条 A 记录指向服务器 IP，例如：`host-1.project-name.com => 12.34.56.78`
@@ -85,4 +93,24 @@
     wget https://raw.github.com/a25ce1/server-setup/master/etc/jail.local -O /etc/fail2ban/jail.local
     
     chkconfig fail2ban on
+
+## 安装 Apache 服务器
+
+    yum install -y httpd
+    service httpd start
+    chkconfig httpd on
+
+## 安装 MySQL 数据库
+
+    yum install -y mysql-server
+    service mysqld start
+    chkconfig mysqld on
+
+### 加强 MySQL 的安全
+
+    /usr/bin/mysql_secure_installation
+
+## 安装 PHP
+
+    yum install -y php php-pear php-mysql php-gd php-mbstring php-mcrypt
 
