@@ -113,7 +113,7 @@
 
     rm -f /etc/httpd/conf.d/welcome.conf
     wget https://raw.github.com/a25ce1/server-setup/master/etc/_default.conf -O /etc/httpd/conf.d/_default.conf
-    wget https://raw.github.com/a25ce1/server-setup/master/etc/sample.conf -O /etc/httpd/conf.d/sample.conf
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/_sample.conf -O /etc/httpd/conf.d/_sample.conf
 
 ####  重启 Apache
 
