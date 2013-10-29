@@ -106,6 +106,10 @@
 
     wget https://raw.github.com/a25ce1/server-setup/master/etc/robots.txt -O /var/www/html/robots.txt
 
+### 配置 Apache
+
+参考 https://github.com/h5bp/server-configs-apache/tree/master/doc
+
 ## 安装 MySQL 数据库
 
     yum install -y mysql-server
