@@ -1,0 +1,3 @@
+[ssh-iptables]
+bantime = 60
+maxretry = 3
