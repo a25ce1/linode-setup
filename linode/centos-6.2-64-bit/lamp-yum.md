@@ -108,7 +108,13 @@
 
 ### 配置 Apache
 
+配置文件
+
+* `/etc/httpd/conf/httpd.conf`
+* `/etc/httpd/conf.d/*.conf`
+
 参考
+
 * https://github.com/h5bp/server-configs-apache/tree/master/doc
 
 ## 安装 MySQL 数据库
