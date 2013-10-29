@@ -38,6 +38,7 @@
 
     nano /etc/iptables.firewall.rules
 
+
     *filter
     
     #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
