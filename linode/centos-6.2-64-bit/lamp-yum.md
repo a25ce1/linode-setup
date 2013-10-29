@@ -116,7 +116,11 @@
 
     yum install -y php php-pear php-mysql php-gd php-mbstring php-mcrypt
 
-## 重启
+## 重启 Apache
+
+    service httpd restart
+
+## 重启服务器
 
     reboot
 
