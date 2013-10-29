@@ -109,7 +109,6 @@
 ### 配置 Apache
 
 参考
-
 * https://github.com/h5bp/server-configs-apache/tree/master/doc
 
 ## 安装 MySQL 数据库
