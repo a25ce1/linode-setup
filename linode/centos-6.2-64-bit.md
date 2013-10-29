@@ -96,19 +96,6 @@ iptables-restore < /etc/iptables.firewall.rules
 /sbin/service iptables save
 ```
 
-创建并编辑文件 `/etc/network/if-pre-up.d/firewall`
-
-```
-#!/bin/sh
-/sbin/iptables-restore < /etc/iptables.firewall.rules
-```
-
-修改文件权限为可执行
-
-```
-chmod +x /etc/network/if-pre-up.d/firewall
-```
-
 8. 安装和配置 Fail2Ban
 ----------------------
 
