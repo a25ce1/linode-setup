@@ -102,6 +102,10 @@
     service httpd start
     chkconfig httpd on
 
+### 禁止搜索引擎收录
+
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/robots.txt -O /var/www/html/robots.txt
+
 ## 安装 MySQL 数据库
 
     yum install -y mysql-server
