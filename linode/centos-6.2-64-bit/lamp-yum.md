@@ -27,7 +27,7 @@
 
 ## 设置时区
 
-    ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 ## 安装 EPEL 和 Remi，并安装软件更新
 
