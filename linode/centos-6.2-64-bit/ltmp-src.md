@@ -1,4 +1,4 @@
-# Linode CentOS 6.2 64 位 LEMP 编译安装教程（未完成）
+# Linode CentOS 6.2 64 位 LTMP 编译安装教程（未完成）
 
 成功安装后的网站根目录和一些配置文件的路径
 
