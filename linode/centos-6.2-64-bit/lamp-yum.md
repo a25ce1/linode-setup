@@ -118,5 +118,5 @@
 
 ## 重启
 
-   reboot
+    reboot
 
