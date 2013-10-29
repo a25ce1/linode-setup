@@ -108,7 +108,7 @@
     service mysqld start
     chkconfig mysqld on
 
-### 加强 MySQL 的安全
+### 增强 MySQL 的安全性
 
     /usr/bin/mysql_secure_installation
 
