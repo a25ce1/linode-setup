@@ -101,6 +101,8 @@ iptables-restore < /etc/iptables.firewall.rules
 
 ```
 yum install fail2ban
+
 wget https://raw.github.com/a25ce1/server-setup/master/etc/jail.local -O /etc/fail2ban/jail.local
+
 chkconfig fail2ban on
 ```
