@@ -43,7 +43,7 @@
 
 ## 创建防火墙
 
-    nano /etc/iptables.firewall.rules
+    vi /etc/iptables.firewall.rules
 
 复制、粘贴如下内容：
 
