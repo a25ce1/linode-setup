@@ -103,6 +103,25 @@
     service httpd start
     chkconfig httpd on
 
+#### 配置
+
+参考：https://github.com/h5bp/server-configs-apache/tree/master/doc
+
+`Options -Indexes`
+
+`AllowOverride All`
+
+    rm -f /etc/httpd/conf.d/welcome.conf
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/_default.conf -O /etc/httpd/conf.d/_default.conf
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/_sample.conf -O /etc/httpd/conf.d/_sample.conf
+    mkdir /var/www/html/_default
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/index.html -O /var/www/html/_default/index.html
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/robots.txt -O /var/www/html/_default/robots.txt
+
+####  重启 Apache
+
+    service httpd restart
+
 ## 安装 MySQL 数据库
 
     yum install -y mysql-server
