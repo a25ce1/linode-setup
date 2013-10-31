@@ -12,14 +12,13 @@
 
 ### 创建分区
 
-    fdisk /dev/xvdb << EOF
+    fdisk /dev/xvdb
     n
     p
     1
     
     
     w
-    EOF
 
 ### 格式化分区
 
