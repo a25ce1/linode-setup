@@ -103,7 +103,7 @@
     service httpd start
     chkconfig httpd on
 
-#### 配置
+### 配置
 
 参考：https://github.com/h5bp/server-configs-apache/tree/master/doc
 
@@ -118,7 +118,7 @@
     wget https://raw.github.com/a25ce1/server-setup/master/etc/index.html -O /var/www/html/_default/index.html
     wget https://raw.github.com/a25ce1/server-setup/master/etc/robots.txt -O /var/www/html/_default/robots.txt
 
-####  重启 Apache
+###  重启 Apache
 
     service httpd restart
 
