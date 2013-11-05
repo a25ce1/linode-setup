@@ -89,6 +89,10 @@
 
     /sbin/service iptables save
 
+### 设置防火墙开机自动启动
+
+    service iptables save
+
 ## 安装和配置 Fail2Ban
 
     yum install -y fail2ban
