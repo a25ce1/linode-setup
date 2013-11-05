@@ -91,7 +91,7 @@
 
 ### 设置防火墙开机自动启动
 
-    service iptables save
+    service iptables on
 
 ## 安装和配置 Fail2Ban
 
