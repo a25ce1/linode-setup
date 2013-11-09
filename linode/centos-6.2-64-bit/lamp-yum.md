@@ -29,6 +29,10 @@
 
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+## 确认时间
+
+    date
+
 ## 安装 EPEL 和 Remi，并安装软件更新
 
     rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
