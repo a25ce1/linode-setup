@@ -124,30 +124,9 @@
 
 `# IE=edge header, Compression, ETag removal, Expires headers`
 
-编辑 `nano /etc/httpd/conf.d/welcome.conf`
+创建默认虚拟主机
 
-    NameVirtualHost *:80
-    
-    <VirtualHost _default_:80>
-        DocumentRoot /var/www/html/welcome
-    </VirtualHost>
-    
-    # 示例网站
-    # <VirtualHost *:80>
-    #     DocumentRoot /var/www/html/example
-    #     ServerName   www.example.com
-    #     ServerAlias  example.com
-    # </VirtualHost>
-    
-    # 示例网站静态资源镜像
-    # <VirtualHost *:80>
-    #     DocumentRoot /var/www/html/example/static
-    #     ServerName   0.example.com
-    #     ServerAlias  1.example.com 2.example.com 3.example.com 4.example.com 5.example.com
-    # </VirtualHost>
-
-创建默认站点文件
-
+    wget https://raw.github.com/a25ce1/server-setup/master/etc/welcome.conf -O /etc/httpd/conf.d/welcome.conf
     mkdir /var/www/html/welcome
     wget https://raw.github.com/a25ce1/server-setup/master/etc/index.html -O /var/www/html/welcome/index.html
     wget https://raw.github.com/a25ce1/server-setup/master/etc/robots.txt -O /var/www/html/welcome/robots.txt
