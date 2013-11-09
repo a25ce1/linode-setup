@@ -47,9 +47,10 @@
 
 ## 创建防火墙
 
-    vi /etc/iptables.firewall.rules
+    nano /etc/iptables.firewall.rules
 
 复制、粘贴如下内容：
+退出并保存：`Ctrl + X` => `Y` => `Enter`
 
     *filter
     
