@@ -124,7 +124,7 @@
 
 `# IE=edge header, Compression, ETag removal, Expires headers`
 
-编辑 `/etc/httpd/conf.d/welcome.conf`
+编辑 `nano /etc/httpd/conf.d/welcome.conf`
 
     NameVirtualHost *:80
     
