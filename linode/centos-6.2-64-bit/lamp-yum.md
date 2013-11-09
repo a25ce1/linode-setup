@@ -118,9 +118,11 @@
 
 参考：https://github.com/h5bp/server-configs-apache/tree/master/doc
 
-`Options -Indexes`
+`Options -MultiViews -Indexes FollowSymLinks`
 
 `AllowOverride All`
+
+`# IE=edge header, Compression, ETag removal, Expires headers`
 
     rm -f /etc/httpd/conf.d/welcome.conf
     wget https://raw.github.com/a25ce1/server-setup/master/etc/_default.conf -O /etc/httpd/conf.d/_default.conf
