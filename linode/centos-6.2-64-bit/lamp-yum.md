@@ -147,7 +147,7 @@
 
 ## 安装 PHP
 
-    yum install -y php php-pear php-mysql php-mbstring php-mcrypt php-gd php-pecl-imagick
+    yum install -y php php-pear php-mysql php-mbstring php-mcrypt php-gd
 
 ## 重启 Apache
 
