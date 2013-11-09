@@ -13,6 +13,7 @@
 1. 在 DNS 中添加一条指向服务器 IP 的 A 记录，例如：`host-jojo.example.com => 12.34.56.78`
 2. 在 Linode 后台中，修改服务器 IP 的反向解析为刚才设置的域名
 3. 在 Linode 后台中，点击分配一个局域网 IP
+4. 设置 Linode Label，例如：`example-jojo`
 4. 重启服务器
 
 ## 设置主机名
@@ -46,7 +47,7 @@
 
 ## 创建防火墙
 
-    nano /etc/iptables.firewall.rules
+    vi /etc/iptables.firewall.rules
 
 复制、粘贴如下内容：
 
